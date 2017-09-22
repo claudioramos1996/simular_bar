@@ -1,0 +1,29 @@
+
+public class Cliente {
+
+	private int cod;
+	
+	private long volumeBedido;
+	
+	public Cliente(int cod) {
+		this.cod = cod;
+	}
+	public int getCod() {
+		return cod;
+	}
+
+	public void setCod(int cod) {
+		this.cod = cod;
+	}
+
+	public long getVolumeBedido() {
+		return volumeBedido;
+	}
+
+	public void setVolumeBedido(long volumeBedido) {
+		this.volumeBedido = volumeBedido;
+	}
+	
+	
+	
+}

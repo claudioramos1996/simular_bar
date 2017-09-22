@@ -1,0 +1,21 @@
+
+public class Garrafa {
+
+	private int codGarrafa;
+	private long litros;
+	
+	s
+	public int getCodGarrafa() {
+		return codGarrafa;
+	}
+	public void setCodGarrafa(int codGarrafa) {
+		this.codGarrafa = codGarrafa;
+	}
+	public long getLitros() {
+		return litros;
+	}
+	public void setLitros(long litros) {
+		this.litros = litros;
+	}
+
+}

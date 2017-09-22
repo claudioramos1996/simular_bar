@@ -1,0 +1,24 @@
+
+public class Garrafa {
+
+	private int codGarrafa;
+	private long litros;
+	
+	public Garrafa(int cod) {
+		codGarrafa = cod;
+		litros = 500;
+	}
+	public int getCodGarrafa() {
+		return codGarrafa;
+	}
+	public void setCodGarrafa(int codGarrafa) {
+		this.codGarrafa = codGarrafa;
+	}
+	public long getLitros() {
+		return litros;
+	}
+	public void setLitros(long litros) {
+		this.litros = litros;
+	}
+
+}

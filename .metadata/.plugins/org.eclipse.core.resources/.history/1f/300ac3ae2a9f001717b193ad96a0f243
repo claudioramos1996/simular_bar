@@ -1,0 +1,6 @@
+
+public class Garrafa {
+	private int codGarrafa;
+	private long litros;
+	
+}
