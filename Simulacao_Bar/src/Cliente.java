@@ -3,7 +3,7 @@ public class Cliente {
 
 	private int cod;
 
-	private long volumeBedido;
+	private long volumeBedido = 0;
 	
 	private Garrafa garrafaBebida = null;
 
@@ -16,6 +16,8 @@ public class Cliente {
 	public void beber(int tempo, Garrafa garrafa){
 		
 		horarioTerminalBeber = tempo+7;
+		
+		volumeBedido += garrafa.getLitros();
 		
 		garrafaBebida = garrafa;
 	}

@@ -1,5 +1,5 @@
 
-public class Garcionete {
+public class Garconete {
 
 	private int totalGarrafasEnchidas = 0;
 	

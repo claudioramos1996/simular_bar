@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class SimulacaoV2 {
 
@@ -8,7 +9,7 @@ public class SimulacaoV2 {
 
 	public static void simular() {
 
-		Garcionete garcionete = new Garcionete();
+		Garconete garconete = new Garconete();
 
 		Bar bar = new Bar();
 
@@ -16,34 +17,49 @@ public class SimulacaoV2 {
 
 			bar.atualizar(tempo);
 
-			mostrarInformacoes(bar, garcionete, tempo,true);
+			mostrarInformacoes(bar, garconete, tempo,true);
 
 
-			if(garcionete.isAguardandoCopo()){
-				garcionete.setTempoQueIraFicaOciosa(tempo);
+			if(garconete.isAguardandoCopo()){
+				garconete.setTempoQueIraFicaOciosa(tempo);
 			}
 			
-			if(garcionete.isTerminoEncher(tempo) && garcionete.isAguardandoCopo() == false)
+			if(garconete.isTerminoEncher(tempo) && garconete.isAguardandoCopo() == false)
 				if (bar.isClienteOcioso(tempo)) {
 					bar.beberGarrefa(tempo);
 				}
 			
-			if (garcionete.isOciosa(tempo))
+			if (garconete.isOciosa(tempo))
 				if (bar.isGarrafaVazia(tempo)) {
-					garcionete.encherGarrafa(tempo);
+					garconete.encherGarrafa(tempo);
 				}
 
-			if(garcionete.isOciosa(tempo) && bar.isGarrafaVazia(tempo) == false)
-				garcionete.setAguardandoCopo(true);
+			if(garconete.isOciosa(tempo) && bar.isGarrafaVazia(tempo) == false)
+				garconete.setAguardandoCopo(true);
 				
-			mostrarInformacoes(bar, garcionete, tempo,false);
+			mostrarInformacoes(bar, garconete, tempo,false);
 
 			System.out.print("\n\n");
 		}
+		
+		informacoesFinais(bar,garconete);
 	}
 
+	private static void informacoesFinais(Bar bar ,Garconete garconete){
+		
+		
+		
+		String texto = "\nClientes: ";
+		
+		for (Cliente cliente : bar.getClientesBebendo()) {
+			texto += "\nCliente " + cliente.getCod() + " bebeu: " + cliente.getVolumeBedido() + " Litros";
+		}
+		
+		JOptionPane.showMessageDialog(null, "Total de copos enchidos foi: " + garconete.getTotalGarrafasEnchidas() + texto);
+		
+	}
 	@SuppressWarnings("static-access")
-	private static void mostrarInformacoes(Bar bar, Garcionete garcionete, int minuto, boolean momentoInicial) {
+	private static void mostrarInformacoes(Bar bar, Garconete garcionete, int minuto, boolean momentoInicial) {
 		
 //		if(momentoInicial == true)
 //			return;
