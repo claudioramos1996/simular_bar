@@ -3,6 +3,8 @@ public class Garrafa {
 
 	private int cod;
 	private long litros;
+	private int tempoQueGarrafaEstaraVazia = 0;
+	
 	
 	public Garrafa(int cod) {
 		this.cod = cod;
@@ -22,6 +24,14 @@ public class Garrafa {
 	}
 	public void setLitros(long litros) {
 		this.litros = litros;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		Garrafa garrafa = (Garrafa) obj;
+		
+		return this.getCod() == garrafa.getCod();
 	}
 
 }
