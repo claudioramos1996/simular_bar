@@ -17,13 +17,17 @@ public class Cliente {
 		
 		horarioTerminalBeber = tempo+7;
 		
-		volumeBedido += garrafa.getLitros();
+		//volumeBedido += garrafa.getLitros();
 		
 		garrafaBebida = garrafa;
 	}
 	
 	public boolean isOcioso(int tempo){
-		return tempo == horarioTerminalBeber;
+		if(tempo == horarioTerminalBeber){
+			//volumeBedido += 500;
+			return true;
+		}
+		return false;
 	}
 
 	public int getCod() {

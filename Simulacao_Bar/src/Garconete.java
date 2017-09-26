@@ -19,8 +19,12 @@ public class Garconete {
 	}
 
 	public boolean isTerminoEncher(int tempo) {
+		if(tempoQueIraFicaOciosa == tempo && tempo > 0){
+
+			return true;
+		}
 		
-		return tempoQueIraFicaOciosa == tempo && tempo > 0;
+		return false;
 	}
 
 	public int getTotalGarrafasEnchidas() {

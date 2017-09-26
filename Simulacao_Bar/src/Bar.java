@@ -11,6 +11,7 @@ public class Bar {
 
 	private static List<Cliente> clientesBebendo = new ArrayList<Cliente>();
 
+	private static int garrafaEnchidas = 0;
 	
 	public void atualizar(int tempo){
 		
@@ -20,6 +21,8 @@ public class Bar {
 			
 			if (cliente.isOcioso(tempo)) {
 
+				cliente.setVolumeBedido(cliente.getVolumeBedido() + 500);
+				
 				esvaziarUmaGarrafa();
 
 				tornarUmClienteOcioso(cliente.getCod());
@@ -70,7 +73,7 @@ public class Bar {
 
 		Garrafa garrafa = garrafasCheias.get(0);
 		garrafasCheias.remove(0);
-
+		
 		garrafasVazias.add(garrafa);
 
 	}
@@ -153,6 +156,14 @@ public class Bar {
 
 	public static void setClientesBebendo(List<Cliente> clientesBebendo) {
 		Bar.clientesBebendo = clientesBebendo;
+	}
+
+	public static int getGarrafaEnchidas() {
+		return garrafaEnchidas;
+	}
+
+	public static void setGarrafaEnchidas(int garrafaEnchidas) {
+		Bar.garrafaEnchidas = garrafaEnchidas;
 	}
 	
 	

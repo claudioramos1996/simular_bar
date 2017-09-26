@@ -13,7 +13,7 @@ public class SimulacaoV2 {
 
 		Bar bar = new Bar();
 
-		for (int tempo = 0; tempo < 40; tempo++) {
+		for (int tempo = 0; tempo <= 50; tempo++) {
 
 			bar.atualizar(tempo);
 
@@ -50,12 +50,22 @@ public class SimulacaoV2 {
 		
 		
 		String texto = "\nClientes: ";
-		
+	
+		for (Cliente cliente : bar.getClientesOciosos()) {
+			texto += "\nCliente " + cliente.getCod() + " bebeu: " + cliente.getVolumeBedido() + " Litros";
+			
+		}
 		for (Cliente cliente : bar.getClientesBebendo()) {
 			texto += "\nCliente " + cliente.getCod() + " bebeu: " + cliente.getVolumeBedido() + " Litros";
 		}
 		
-		JOptionPane.showMessageDialog(null, "Total de copos enchidos foi: " + garconete.getTotalGarrafasEnchidas() + texto);
+		int coposBebidos = garconete.getTotalGarrafasEnchidas();
+		
+		if(bar.getClientesOciosos().size() > 0 ){
+			coposBebidos -= 1;
+		}
+		
+		JOptionPane.showMessageDialog(null, "Total de copos enchidos foi: " + coposBebidos + texto);
 		
 	}
 	@SuppressWarnings("static-access")
@@ -84,6 +94,7 @@ public class SimulacaoV2 {
 		texto += "\nCLIENTES OCIOSOS: " + bar.getClientesOciosos().size();
 		texto += "\nCLIENTES OCUPADOS: " + bar.getClientesBebendo().size();
 
+		
 		System.out.print(texto);
 
 	}
